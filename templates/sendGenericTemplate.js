@@ -32,6 +32,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
       }
     }, function(error, response, body){
       console.log(body);
+      senderAction(senderID, "typing_off")
       console.log("-----------16----------------")
          if (error) {
            console.log("Error sending message: " + response.error)

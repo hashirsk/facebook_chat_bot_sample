@@ -40,9 +40,7 @@ module.exports = function processMessage(event) {
         senderAction(senderID);
         // after the response is recieved we will send the details in a Generic template
         console.log("-------------------11------------------");
-       sendGenericTemplate(senderID,body).then(()=>{
-         senderAction(senderID, "typing_off")
-       });
+       sendGenericTemplate(senderID,body)
 
      });
     }
