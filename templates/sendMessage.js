@@ -7,8 +7,7 @@ module.exports = function sendMessage(recipientId, message) {
       method: "POST",
       json:{
         recipient: {id: recipientId},
-        message: message,
-        sender_action: "typing_off"
+        message: message
       }
     }, function (error, response, body){
       console.log("-------------------13------------------");

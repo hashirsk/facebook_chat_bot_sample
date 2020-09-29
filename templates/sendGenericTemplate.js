@@ -28,8 +28,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
        method: 'POST',
        json: {
          recipient: {id: recipientId},
-         message: messageData,
-         sender_action: "typing_off"
+         message: messageData
       }
     }, function(error, response, body){
       console.log(body);
