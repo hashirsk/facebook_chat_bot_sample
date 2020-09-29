@@ -1,23 +1,45 @@
-const request = require('request')
+// const request = require('request')
+const axios = require('axios');
 module.exports = function senderAction(recipientId, typingStatus) {
-  console.log("-------------------12.1------------------");
-  console.log(recipientId);
-  console.log("-------------------12.2------------------");
-  console.log(typingStatus);
-  console.log("-------------------12.3------------------");
-  request({
-    url: "https://graph.facebook.com/v8.0/me/messages",
-    qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
-    method: "POST",
-    json: {
+
+  axios.post(
+    'https://graph.facebook.com/v8.0/me/messages',
+    {
       recipient: {id: recipientId},
       sender_action: typingStatus
+    },
+    {
+      params:{
+        access_token: process.env.PAGE_ACCESS_TOKEN
+      }
     }
-  }, function (error, response, body) {
-    console.log(body);
-    console.log("-------------------12------------------");
-    if(error) {
-      console.log("Error sending message "+ response.error);
-    }
-  })
+  ).then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log("Error sending message ");
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+      console.log('finish');
+    });
+
+  // request({
+  //   url: "https://graph.facebook.com/v8.0/me/messages",
+  //   qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+  //   method: "POST",
+  //   json: {
+  //     recipient: {id: recipientId},
+  //     sender_action: typingStatus
+  //   }
+  // }, function (error, response, body) {
+  //   console.log(body);
+  //   console.log("-------------------12------------------");
+  //   if(error) {
+  //     console.log("Error sending message "+ response.error);
+  //   }
+  // })
 }

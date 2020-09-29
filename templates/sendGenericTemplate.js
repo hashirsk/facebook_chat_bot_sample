@@ -1,4 +1,5 @@
-const request = require('request');
+// const request = require('request
+const axios = require('axios');
 //const senderAction = require('../templates/senderAction');
 
 module.exports = function sendGenericTemplate(recipientId, respBody) {
@@ -26,22 +27,52 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
          quick_replies: ["Welcome", "Hashir"]
       }
 
-      request({
-       url: 'https://graph.facebook.com/v8.0/me/messages',
-       qs: { access_token: process.env.PAGE_ACCESS_TOKEN },
-       method: 'POST',
-       json: {
-         messaging_type: "RESPONSE",
-         recipient: {id: recipientId},
-         message: messageData,
-         notification_type: "REGULAR"
-      }
-    }, function(error, response, body){
-      console.log(body);
-    //  senderAction(senderID, "typing_off")
-      console.log("-----------16----------------")
-         if (error) {
-           console.log("Error sending message: " + response.error)
+      axios.post(
+        'https://graph.facebook.com/v8.0/me/messages',
+        {
+          messaging_type: "RESPONSE",
+          recipient: {id: recipientId},
+          message: messageData,
+          notification_type: "REGULAR"
+        },
+        {
+          params:{
+            access_token: process.env.PAGE_ACCESS_TOKEN
           }
-     })
+        }
+      ).then(function (response) {
+          // handle success
+          console.log(response);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+          console.log('finish');
+        });
+    //   request({
+    //    url: 'https://graph.facebook.com/v8.0/me/messages',
+    //    qs: { access_token: process.env.PAGE_ACCESS_TOKEN },
+    //    method: 'POST',
+    //    json: {
+    //      messaging_type: "RESPONSE",
+    //      recipient: {id: recipientId},
+    //      message: messageData,
+    //      notification_type: "REGULAR"
+    //   },
+    //   {
+    //     params:{
+    //
+    //     }
+    //   }
+    // }, function(error, response, body){
+    //   console.log(body);
+    // //  senderAction(senderID, "typing_off")
+    //   console.log("-----------16----------------")
+    //      if (error) {
+    //        console.log("Error sending message: " + response.error)
+    //       }
+    //  })
   }
