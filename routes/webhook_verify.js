@@ -37,8 +37,10 @@ console.log("-------------4---------------");
            console.log(event.message);
            console.log("-------------7---------------");
            if(event.postback) {
+             console.log("-------------7.1---------------");
              processPostback(event)
            } else if(event.message){
+             console.log("-------------7.2---------------");
              processMessage(event)
            }
          })

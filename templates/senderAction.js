@@ -9,6 +9,7 @@ module.exports = function senderAction(recipientId) {
       sender_action: "typing_on"
     }
   }, function (error, response, body) {
+    console.log(body);
     console.log("-------------------12------------------");
     if(error) {
       console.log("Error sending message "+ response.error);

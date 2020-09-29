@@ -3,6 +3,7 @@ const request = require('request');
 module.exports = function sendGenericTemplate(recipientId, respBody) {
    console.log(respBody);
    const nutritionalValue = [];
+   console.log("-------------------15------------------");
    for (let i = 0; i < respBody.length; i++) { // I dont like using forEach
       let obj = {
              "title":respBody[i].food_name,
@@ -30,6 +31,8 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
          message: messageData,
       }
     }, function(error, response, body){
+      console.log(body);
+      console.log("-----------16----------------")
          if (error) {
            console.log("Error sending message: " + response.error)
           }

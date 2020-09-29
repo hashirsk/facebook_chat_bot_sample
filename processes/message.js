@@ -15,17 +15,22 @@ module.exports = function processMessage(event) {
       let request = require("request");
       let options = {
           method: 'POST',
-          url: 'https://damp-atoll-00850.herokuapp.com/query',
-          headers:{ 'cache-control': 'no-cache',
-                    'content-type': 'application/json'
-                  },
+          url: 'https://damp-atoll-00850.herokuapp.com/query/getAnswers',
+          // headers:{ 'cache-control': 'no-cache',
+          //           'content-type': 'application/json'
+          //         },
           body:{ userId: senderID,
                  query: text
                },
           json: true
       };
+      console.log("-------------------7.5------------------");
       request(options, function (error, response, body) {
+        console.log(response);
+        console.log("------------");
+        console.log(body);
         console.log("-------------------8------------------");
+        console.log(error);
         if (error) {
           console.log("-------------------9------------------");
           console.log(error);
