@@ -8,7 +8,8 @@ const app = express()
 app.set('port', (process.env.PORT || 3000))
 
 app.use(morgan('dev')); // log every request in console.log();
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true
+}))
 app.use(bodyParser.json())
 
 require('./routes/webhook_verify')(app)
