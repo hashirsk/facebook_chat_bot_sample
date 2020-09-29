@@ -42,7 +42,7 @@ module.exports = function processMessage(event) {
         console.log("-------------------11------------------");
 
         sendMessage(senderID, {
-           text: ans,
+           text: body.ans,
            quick_replies: ["Welcome", "Hashir"]
         })
        //sendGenericTemplate(senderID,body)
