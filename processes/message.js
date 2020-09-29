@@ -3,6 +3,7 @@ const axios = require('axios');
 const senderAction = require('../templates/senderAction');
 const sendMessage = require('../templates/sendMessage');
 const sendGenericTemplate = require('../templates/sendGenericTemplate')
+const getQuery = require('../templates/getQuery')
 
 module.exports = function processMessage(event) {
     if (!event.message.is_echo) {
@@ -27,35 +28,48 @@ module.exports = function processMessage(event) {
       // };
       // console.log("-------------------7.5------------------");
 
+      getQuery(senderID, text).then((response)=>{
+        console.log(response);
+        console.log("------------121---------------"+response.data)
+         senderAction(senderID, "typing_on");
+         sendMessage(senderID, {
+            text: response.data.ans
+         }).then(()=>{
+             senderAction(senderID, "typing_off");
+           //senderAction(senderID, "typing_off")
+         })
+      }).catch((error)=>{
 
-      axios.post(
-        'https://damp-atoll-00850.herokuapp.com/query/getAnswers',
-        {
-          userId: senderID,
-          query: text
-        },
-        {
-          // params:{
-          //   access_token: process.env.PAGE_ACCESS_TOKEN
-          // }
-        }
-      ).then(function (response) {
-          // handle success
-         console.log(response);
-         console.log("------------121---------------"+response.data)
-          senderAction(senderID, "typing_on");
-          sendMessage(senderID, {
-             text: response.data.ans
-          }).then(()=>{
-              senderAction(senderID, "typing_off");
-            //senderAction(senderID, "typing_off")
-          })
-         //sendGenericTemplate(senderID,body)
-        })
-        .catch(function (error) {
-          // handle error
-        //  console.log(error);
-        })
+      })
+
+      // axios.post(
+      //   'https://damp-atoll-00850.herokuapp.com/query/getAnswers',
+      //   {
+      //     userId: senderID,
+      //     query: text
+      //   },
+      //   {
+      //     // params:{
+      //     //   access_token: process.env.PAGE_ACCESS_TOKEN
+      //     // }
+      //   }
+      // ).then(function (response) {
+      //     // handle success
+      //    console.log(response);
+      //    console.log("------------121---------------"+response.data)
+      //     senderAction(senderID, "typing_on");
+      //     sendMessage(senderID, {
+      //        text: response.data.ans
+      //     }).then(()=>{
+      //         senderAction(senderID, "typing_off");
+      //       //senderAction(senderID, "typing_off")
+      //     })
+      //    //sendGenericTemplate(senderID,body)
+      //   })
+      //   .catch(function (error) {
+      //     // handle error
+      //   //  console.log(error);
+      //   })
 
 //       request(options, function (error, response, body) {
 //         console.log(response);
