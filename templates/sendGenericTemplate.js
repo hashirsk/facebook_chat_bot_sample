@@ -21,6 +21,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
          //       "elements": [obj,obj]
          //    }
          // }
+         "attachment":{},
          "text":ans
       }
 
