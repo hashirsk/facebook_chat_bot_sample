@@ -3,6 +3,7 @@
 
 module.exports = (app, chalk) => {
   app.get('/webhook', (req, res)=> {
+    console.log(req);
     if(req.query['hub.verify_token'] === "dfReHjuy43Dfr") {
       console.log('webhook verified');
       res.status(200).send(req.query['hub.challange'])
