@@ -45,7 +45,7 @@ module.exports = function processMessage(event) {
          console.log("------------121---------------"+response.data)
           senderAction(senderID, "typing_on");
           sendMessage(senderID, {
-             text: response.ans
+             text: response.data.ans
           }).then(()=>{
               senderAction(senderID, "typing_off");
             //senderAction(senderID, "typing_off")
