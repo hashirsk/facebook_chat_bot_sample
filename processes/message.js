@@ -41,7 +41,8 @@ module.exports = function processMessage(event) {
         }
       ).then(function (response) {
           // handle success
-        //  console.log(response);
+         console.log(response);
+         console.log("------------121---------------")
           senderAction(senderID, "typing_on");
           sendMessage(senderID, {
              text: response.ans
