@@ -37,7 +37,7 @@ module.exports = function processMessage(event) {
           throw new Error(error);
         }
         console.log("-------------------10------------------");
-        senderAction(senderID);
+        senderAction(senderID, "typing_on");
         // after the response is recieved we will send the details in a Generic template
         console.log("-------------------11------------------");
 
