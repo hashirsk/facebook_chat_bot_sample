@@ -7,21 +7,23 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
    console.log("-------------------15------------------"+ans);
   // for (let i = 0; i < respBody.length; i++) { // I dont like using forEach
 
-      let obj = {
-             "title":"Test Title",
-             "image_url": "https://cdn130.picsart.com/316113773147201.png?type=webp&to=min&r=640",
-             "subtitle": 'Subtitle',
-           }
+      // let obj = {
+      //        "title":"Test Title",
+      //        "image_url": "https://cdn130.picsart.com/316113773147201.png?type=webp&to=min&r=640",
+      //        "subtitle": 'Subtitle',
+      //      }
+
+      // "attachment": {
+      // "type": "template",
+      // "payload": {
+      //       "template_type": "generic",
+      //       "elements": [obj,obj]
+      //    }
+      // }
 
       let messageData = {
-         // "attachment": {
-         // "type": "template",
-         // "payload": {
-         //       "template_type": "generic",
-         //       "elements": [obj,obj]
-         //    }
-         // }
-         "text":ans
+         text: ans,
+         quick_replies: ["Welcome", "Hashir"]
       }
 
       request({
@@ -31,7 +33,8 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
        json: {
          messaging_type: "RESPONSE",
          recipient: {id: recipientId},
-         message: messageData
+         message: messageData,
+         notification_type: "REGULAR"
       }
     }, function(error, response, body){
       console.log(body);
