@@ -15,19 +15,19 @@ module.exports = function processMessage(event) {
       let request = require("request");
       let options = {
           method: 'POST',
-          url: 'https://mefit-preprod.herokuapp.com/api/getnutritionvalue',
+          url: 'https://damp-atoll-00850.herokuapp.com/query',
           headers:{ 'cache-control': 'no-cache',
                     'content-type': 'application/json'
                   },
-          body:{ userID: process.env.USERID,
-                 searchTerm: text
+          body:{ userId: senderID,
+                 query: text
                },
           json: true
       };request(options, function (error, response, body) {
       if (error) throw new Error(error);
       senderAction(senderID);
       // after the response is recieved we will send the details in a Generic template
-      
+
        sendGenericTemplate(senderID,body);
      });
     }

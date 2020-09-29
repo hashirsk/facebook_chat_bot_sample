@@ -33,6 +33,8 @@ console.log("-------------4---------------");
          entry.messaging.forEach((event)=>{
            console.log("-------------7---------------");
            console.log(event);
+           console.log(event.postback);
+           console.log(event.message);
            console.log("-------------7---------------");
            if(event.postback) {
              processPostback(event)
