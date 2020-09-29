@@ -1,5 +1,7 @@
 const request = require('request')
 module.exports = function senderAction(recipientId, typingStatus) {
+  console.log(recipientId);
+  console.log(typingStatus);
   request({
     url: "https://graph.facebook.com/v8.0/me/messages",
     qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
