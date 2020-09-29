@@ -7,6 +7,7 @@ let setStartAction = (app) => {
       let reply = "Welcome to telegram weather bot";
       // let _text = message.text //message.text.toLowerCase().indexOf('/');
       console.log(req);
+      console.log("=====1=====");
       getQuery(message.chat.id, message.text).then((response) => {
         sendMessage(telegram_url,message,response.data.ans,res);
       }).catch((error)=>{
