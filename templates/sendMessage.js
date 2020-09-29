@@ -10,6 +10,7 @@ module.exports = function sendMessage(recipientId, message) {
         message: message
       }
     }, function (error, response, body){
+      console.log("-------------------13------------------");
       if(error) {
         console.log("Error sending message "+response.error);
         reject(response.error)

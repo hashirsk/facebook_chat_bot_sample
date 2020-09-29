@@ -20,14 +20,21 @@ module.exports = function processMessage(event) {
                     'content-type': 'application/json'
                   },
           body:{ userId: senderID,
-                 query: text 
+                 query: text
                },
           json: true
-      };request(options, function (error, response, body) {
-      if (error) throw new Error(error);
-      senderAction(senderID);
-      // after the response is recieved we will send the details in a Generic template
-
+      };
+      request(options, function (error, response, body) {
+        console.log("-------------------8------------------");
+        if (error) {
+          console.log("-------------------9------------------");
+          console.log(error);
+          throw new Error(error);
+        }
+        console.log("-------------------10------------------");
+        senderAction(senderID);
+        // after the response is recieved we will send the details in a Generic template
+        console.log("-------------------11------------------");
        sendGenericTemplate(senderID,body);
      });
     }
