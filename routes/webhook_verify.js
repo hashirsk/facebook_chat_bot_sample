@@ -1,34 +1,37 @@
-const processPostback = require('../processes/postback')
-const processMessage = require('../processes/messages')
+// const processPostback = require('../processes/postback')
+// const processMessage = require('../processes/messages')
 
 module.exports = (app, chalk) => {
   app.get('/webhook', (req, res)=> {
     console.log(req);
+    console.log("----------------------------");
     if(req.query['hub.verify_token'] === "dfReHjuy43Dfr") {
       console.log('webhook verified');
+      console.log("-------------2---------------");
       res.status(200).send(req.query['hub.challange'])
     } else {
+      console.log("-------------3---------------");
       console.error('Verification failed. Token mismatched');
       res.sendStatus(403)
     }
   })
-
-  app.post('/webhook', (req, res) => {
-      if(req.body.object === 'page') {
-        /* Iterate over each entry, there can be multiple entries
-       if callbacks are batched. */
-       req.body.entry.forEach((entry)=>{
-         //Iterate over each messaging event
-         entry.messaging.forEach((event)=>{
-           console.log(event);
-           if(event.postback) {
-             processPostback(event)
-           } else if(event.message){
-             processMessage(event)
-           }
-         })
-       })
-       res.sendStatus(200)
-      }
-  })
+console.log("-------------4---------------");
+  // app.post('/webhook', (req, res) => {
+  //     if(req.body.object === 'page') {
+  //       /* Iterate over each entry, there can be multiple entries
+  //      if callbacks are batched. */
+  //      req.body.entry.forEach((entry)=>{
+  //        //Iterate over each messaging event
+  //        entry.messaging.forEach((event)=>{
+  //          console.log(event);
+  //          if(event.postback) {
+  //            processPostback(event)
+  //          } else if(event.message){
+  //            processMessage(event)
+  //          }
+  //        })
+  //      })
+  //      res.sendStatus(200)
+  //     }
+  // })
 }
