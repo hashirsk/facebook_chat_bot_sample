@@ -40,10 +40,9 @@ module.exports = function processMessage(event) {
         senderAction(senderID, "typing_on");
         // after the response is recieved we will send the details in a Generic template
         console.log("-------------------11------------------");
-
+// quick_replies: ["Welcome", "Hashir"]
         sendMessage(senderID, {
-           text: body.ans,
-           quick_replies: ["Welcome", "Hashir"]
+           text: body.ans
         }).then(()=>{
             senderAction(senderID, "typing_off");
           //senderAction(senderID, "typing_off")
