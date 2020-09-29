@@ -1,5 +1,5 @@
 const request = require('request');
-const senderAction = require('../templates/senderAction');
+//const senderAction = require('../templates/senderAction');
 
 module.exports = function sendGenericTemplate(recipientId, respBody) {
    console.log(respBody);

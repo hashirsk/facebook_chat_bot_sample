@@ -40,7 +40,12 @@ module.exports = function processMessage(event) {
         senderAction(senderID);
         // after the response is recieved we will send the details in a Generic template
         console.log("-------------------11------------------");
-       sendGenericTemplate(senderID,body)
+
+        sendMessage(senderID, {
+           text: ans,
+           quick_replies: ["Welcome", "Hashir"]
+        })
+       //sendGenericTemplate(senderID,body)
 
      });
     }

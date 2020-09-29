@@ -7,7 +7,9 @@ module.exports = function sendMessage(recipientId, message) {
       method: "POST",
       json:{
         recipient: {id: recipientId},
-        message: message
+        message: message,
+        messaging_type: "RESPONSE",
+        notification_type: "REGULAR"
       }
     }, function (error, response, body){
       console.log("-------------------13------------------");

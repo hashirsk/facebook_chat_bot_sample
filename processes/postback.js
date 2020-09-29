@@ -32,7 +32,7 @@ module.exports = function processPostback(event) {
         sendMessage(senderID, {text: message2}).then(()=>{
           sendMessage(senderID, {text: message3}).then(()=>{
             sendMessage(senderID, {text: '🎈'})
-            senderAction(senderID, "typing_off")
+            //senderAction(senderID, "typing_off")
           })
         })
       })
