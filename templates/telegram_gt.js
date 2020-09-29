@@ -1,4 +1,4 @@
-const getQuery = require('getQuery')
+const getQuery = require('./getQuery')
 let telegram_url = "https://api.telegram.org/bot" + process.env.TELEGRAM_API_TOKEN +"/sendMessage";
 
 module.exports = (app, chalk) => {
