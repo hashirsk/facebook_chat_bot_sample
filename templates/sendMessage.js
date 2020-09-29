@@ -22,10 +22,10 @@ module.exports = function sendMessage(recipientId, message) {
         console.log(response);
       })
       .catch(function (error) {
-        reject(response.error)
         // handle error
         console.log("Error sending message ");
         console.log(error);
+        reject(response.error)
       })
       .then(function () {
         // always executed
