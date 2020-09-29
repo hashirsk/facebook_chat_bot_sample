@@ -41,7 +41,7 @@ module.exports = function processMessage(event) {
         }
       ).then(function (response) {
           // handle success
-          console.log(response);
+        //  console.log(response);
           senderAction(senderID, "typing_on");
           sendMessage(senderID, {
              text: response.ans
@@ -53,7 +53,7 @@ module.exports = function processMessage(event) {
         })
         .catch(function (error) {
           // handle error
-          console.log(error);
+        //  console.log(error);
         })
         .then(function () {
           // always executed

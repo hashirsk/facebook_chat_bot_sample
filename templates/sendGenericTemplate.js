@@ -42,11 +42,11 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
         }
       ).then(function (response) {
           // handle success
-          console.log(response);
+        //  console.log(response);
         })
         .catch(function (error) {
           // handle error
-          console.log(error);
+        //  console.log(error);
         })
         .then(function () {
           // always executed

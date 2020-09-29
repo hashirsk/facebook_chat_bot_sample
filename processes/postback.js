@@ -42,7 +42,7 @@ module.exports = function processPostback(event) {
       .catch(function (error) {
         // handle error
         console.log("Error getting user name : ");
-        console.log(error);
+      //  console.log(error);
       })
       .then(function () {
         // always executed
