@@ -1,3 +1,4 @@
+const axios = require('axios');
 const getQuery = require('./getQuery')
 let telegram_url = "https://api.telegram.org/bot" + process.env.TELEGRAM_API_TOKEN +"/sendMessage";
 
