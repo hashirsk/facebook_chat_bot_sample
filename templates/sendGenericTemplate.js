@@ -4,7 +4,7 @@ const senderAction = require('../templates/senderAction');
 module.exports = function sendGenericTemplate(recipientId, respBody) {
    console.log(respBody);
    const ans = respBody.ans;
-   console.log("-------------------15------------------");
+   console.log("-------------------15------------------"+ans);
   // for (let i = 0; i < respBody.length; i++) { // I dont like using forEach
 
       let obj = {
@@ -21,7 +21,6 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
          //       "elements": [obj,obj]
          //    }
          // }
-         "attachment":{},
          "text":ans
       }
 
@@ -30,6 +29,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
        qs: { access_token: process.env.PAGE_ACCESS_TOKEN },
        method: 'POST',
        json: {
+         messaging_type: "RESPONSE",
          recipient: {id: recipientId},
          message: messageData
       }
