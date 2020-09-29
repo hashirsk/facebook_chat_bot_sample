@@ -12,6 +12,7 @@ module.exports = function sendMessage(recipientId, message) {
         notification_type: "REGULAR"
       }
     }, function (error, response, body){
+      console.log(message);
       console.log("-------------------13------------------");
       if(error) {
         console.log("Error sending message "+response.error);
