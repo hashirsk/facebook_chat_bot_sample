@@ -20,7 +20,7 @@ module.exports = function processMessage(event) {
                     'content-type': 'application/json'
                   },
           body:{ userId: senderID,
-                 query: text
+                 query: text 
                },
           json: true
       };request(options, function (error, response, body) {
