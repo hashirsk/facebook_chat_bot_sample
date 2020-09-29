@@ -30,10 +30,6 @@ module.exports = function sendMessage(recipientId, message) {
       //  console.log(error);
         reject(error)
       })
-      .then(function () {
-        // always executed
-        console.log('finish');
-      });
 
     // request({
     //   url: "https://graph.facebook.com/v8.0/me/messages",

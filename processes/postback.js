@@ -44,10 +44,6 @@ module.exports = function processPostback(event) {
         console.log("Error getting user name : ");
       //  console.log(error);
       })
-      .then(function () {
-        // always executed
-        console.log('finish');
-      });
 
     // request({
     //   url: "https://graph.facebook.com/v8.0/" + senderID,

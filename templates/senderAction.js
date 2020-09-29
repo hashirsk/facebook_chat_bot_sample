@@ -22,10 +22,6 @@ module.exports = function senderAction(recipientId, typingStatus) {
       console.log("Error sending message ");
     //  console.log(error);
     })
-    .then(function () {
-      // always executed
-      console.log('finish');
-    });
 
   // request({
   //   url: "https://graph.facebook.com/v8.0/me/messages",

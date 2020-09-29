@@ -55,10 +55,6 @@ module.exports = function processMessage(event) {
           // handle error
         //  console.log(error);
         })
-        .then(function () {
-          // always executed
-          console.log('finish');
-        });
 
 //       request(options, function (error, response, body) {
 //         console.log(response);

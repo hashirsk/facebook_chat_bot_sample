@@ -48,10 +48,6 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
           // handle error
         //  console.log(error);
         })
-        .then(function () {
-          // always executed
-          console.log('finish');
-        });
     //   request({
     //    url: 'https://graph.facebook.com/v8.0/me/messages',
     //    qs: { access_token: process.env.PAGE_ACCESS_TOKEN },
