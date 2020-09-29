@@ -36,6 +36,7 @@ function sendMessage(url, message,reply,res){
     console.log("Message posted");
     res.end("ok");
   }).catch(error =>{
+    console.log("Message failed");
     console.log(error);
   });
 }
