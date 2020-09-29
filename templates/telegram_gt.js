@@ -1,7 +1,7 @@
 const getQuery = require('getQuery')
 let telegram_url = "https://api.telegram.org/bot" + process.env.TELEGRAM_API_TOKEN +"/sendMessage";
 
-let setStartAction = (app) => {
+module.exports = (app, chalk) => {
   app.post("/start_bot", function(req, res) {
       const { message } = req.body;
       let reply = "Welcome to telegram weather bot";
@@ -38,5 +38,3 @@ function sendMessage(url, message,reply,res){
     console.log(error);
   });
 }
-
-module.exports = setStartAction
