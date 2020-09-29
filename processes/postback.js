@@ -5,7 +5,7 @@ const sendMessage = require('../templates/sendMessage')
 module.exports = function processPostback(event) {
   const senderID = event.sender.id
   const payload = event.sender.payload
-  if(payload == 'startPayload') {
+  if(payload == 'Welcome') {
     request({
       url: "https://graph.facebook.com/v8.0/" + senderID,
       qs: {access_token: process.env.PAGE_ACCESS_TOKEN, fields: "first_name"},
