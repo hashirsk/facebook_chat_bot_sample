@@ -25,7 +25,7 @@ module.exports = function sendMessage(recipientId, message) {
         // handle error
         console.log("Error sending message ");
       //  console.log(error);
-        reject(response.error)
+        reject(error)
       })
       .then(function () {
         // always executed
