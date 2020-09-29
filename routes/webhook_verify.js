@@ -1,5 +1,5 @@
-// const processPostback = require('../processes/postback')
-// const processMessage = require('../processes/messages')
+const processPostback = require('../processes/postback')
+const processMessage = require('../processes/messages')
 
 module.exports = (app, chalk) => {
   app.get('/webhook', (req, res)=> {
@@ -13,22 +13,22 @@ module.exports = (app, chalk) => {
     }
   })
 
-  // app.post('/webhook', (req, res) => {
-  //     if(req.body.object === 'page') {
-  //       /* Iterate over each entry, there can be multiple entries
-  //      if callbacks are batched. */
-  //      req.body.entry.forEach((entry)=>{
-  //        //Iterate over each messaging event
-  //        entry.messaging.forEach((event)=>{
-  //          console.log(event);
-  //          if(event.postback) {
-  //            processPostback(event)
-  //          } else if(event.message){
-  //            processMessage(event)
-  //          }
-  //        })
-  //      })
-  //      res.sendStatus(200)
-  //     }
-  // })
+  app.post('/webhook', (req, res) => {
+      if(req.body.object === 'page') {
+        /* Iterate over each entry, there can be multiple entries
+       if callbacks are batched. */
+       req.body.entry.forEach((entry)=>{
+         //Iterate over each messaging event
+         entry.messaging.forEach((event)=>{
+           console.log(event);
+           if(event.postback) {
+             processPostback(event)
+           } else if(event.message){
+             processMessage(event)
+           }
+         })
+       })
+       res.sendStatus(200)
+      }
+  })
 }
