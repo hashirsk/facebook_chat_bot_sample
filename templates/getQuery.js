@@ -1,12 +1,13 @@
 const axios = require('axios');
 
-module.exports = function getQuery(senderID, text){
+module.exports = function getQuery(senderID, text, pf){
   return new Promise((resolve, reject)=>{
     axios.post(
       'https://damp-atoll-00850.herokuapp.com/query/getAnswers',
       {
         userId: senderID,
-        query: text
+        query: text,
+        platform: pf
       },
       {
         // params:{

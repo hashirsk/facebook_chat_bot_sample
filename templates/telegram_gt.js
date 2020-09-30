@@ -9,7 +9,7 @@ module.exports = (app, chalk) => {
       // let _text = message.text //message.text.toLowerCase().indexOf('/');
       console.log(req);
       console.log("=====1=====");
-      getQuery(message.chat.id, message.text).then((response) => {
+      getQuery(message.chat.id, message.text, 'telegram').then((response) => {
         sendMessage(telegram_url,message,response.data.ans,res);
       }).catch((error)=>{
         sendMessage(telegram_url,message,"Sorry no result",res);

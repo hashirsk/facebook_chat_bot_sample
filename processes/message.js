@@ -28,7 +28,7 @@ module.exports = function processMessage(event) {
       // };
       // console.log("-------------------7.5------------------");
 
-      getQuery(senderID, text).then((response)=>{
+      getQuery(senderID, text, 'facebook').then((response)=>{
         console.log(response);
         console.log("------------121---------------"+response.data)
          senderAction(senderID, "typing_on");
