@@ -7,7 +7,7 @@ module.exports = (app, chalk) => {
       const { message } = req.body;
       let reply = "Welcome to telegram weather bot";
       // let _text = message.text //message.text.toLowerCase().indexOf('/');
-      console.log(req);
+      console.log(req.body);
       console.log("=====1=====");
       getQuery(message.chat.id, message.text).then((response) => {
         sendMessage(telegram_url,message,response.data.ans,res);
@@ -30,13 +30,15 @@ module.exports = (app, chalk) => {
 }
 
 function sendMessage(url, message,reply,res){
-  axios.post(url, {chat_id: message.chat.id,
-    text: reply
-  }).then(response => {
-    console.log("Message posted");
-    res.end("ok");
-  }).catch(error =>{
-    console.log("Message failed");
-    console.log(error);
-  });
+  axios.post(url, 
+    {
+      chat_id: message.chat.id,
+      text: reply
+    }).then(response => {
+      console.log("Message posted");
+      res.end("ok");
+    }).catch(error =>{
+      console.log("Message failed");
+      console.log(error);
+   });
 }
