@@ -22,6 +22,7 @@ console.log("-------------4---------------");
     // console.log("-------------5---------------");
     // console.log(req);
     // console.log("-------------5---------------");
+    console.log(res);
     res.sendStatus(200).send('mark_seen')
     new Promise((resolve, reject)=>{
       console.log(req.body.object === 'page');
