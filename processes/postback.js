@@ -6,8 +6,10 @@ const sendMessage = require('../templates/sendMessage')
 module.exports = function processPostback(event) {
   const senderID = event.sender.id
   const payload = event.sender.payload
+  console.log("I am here");
+  console.log(payload);
   if(payload === 'Welcome') {
-console.log(payload);
+
     let message = "Hello, Welcome to Sample Genietalk. Hope you are doing good today"
     let message2 = "You can ask some question :)"
     let message3 = "Please share some information"
