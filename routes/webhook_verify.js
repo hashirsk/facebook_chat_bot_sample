@@ -4,7 +4,7 @@ const processMessage = require('../processes/message')
 module.exports = (app, chalk) => {
 
   app.get('/webhook', (req, res)=> {
-    console.log(req);
+    // console.log(req);
     console.log("----------------------------");
     if(req.query['hub.verify_token'] === process.env.VERIFY_TOKEN) {
       console.log('webhook verified');
