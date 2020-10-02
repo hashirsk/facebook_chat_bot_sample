@@ -23,6 +23,7 @@ console.log("-------------4---------------");
     // console.log(req);
     // console.log("-------------5---------------");
     new Promise((resolve, reject)=>{
+      console.log(req.body);
       if(req.body.object === 'page'){
         res.sendStatus(200).send('EVENT RECEIVED')
         resolve(req)
