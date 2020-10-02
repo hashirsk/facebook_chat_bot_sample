@@ -7,7 +7,7 @@ module.exports = function processPostback(event) {
   const senderID = event.sender.id
   const payload = event.sender.payload
   if(payload === 'Welcome') {
-
+console.log(payload);
     let message = "Hello, Welcome to Sample Genietalk. Hope you are doing good today"
     let message2 = "You can ask some question :)"
     let message3 = "Please share some information"
@@ -18,6 +18,7 @@ module.exports = function processPostback(event) {
         sendMessage(senderID, {text: message3}).then(()=>{
           sendMessage(senderID, {text: '🎈'})
           //senderAction(senderID, "typing_off")
+          console.log('sample');
         })
       })
     })
