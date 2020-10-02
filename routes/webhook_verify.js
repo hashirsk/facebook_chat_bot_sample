@@ -19,16 +19,16 @@ module.exports = (app, chalk) => {
 console.log("-------------4---------------");
 
   app.post('/webhook', (req, res) => {
-    console.log("-------------5---------------");
-    console.log(req);
-    console.log("-------------5---------------");
+    // console.log("-------------5---------------");
+    // console.log(req);
+    // console.log("-------------5---------------");
       if(req.body.object === 'page') {
         /* Iterate over each entry, there can be multiple entries
        if callbacks are batched. */
        req.body.entry.forEach((entry)=>{
-         console.log("-------------6---------------");
-         console.log(entry);
-         console.log("-------------6---------------");
+        //  console.log("-------------6---------------");
+        //  console.log(entry);
+        //  console.log("-------------6---------------");
          //Iterate over each messaging event
          entry.messaging.forEach((event)=>{
            console.log("-------------7---------------");
