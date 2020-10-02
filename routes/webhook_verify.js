@@ -22,10 +22,18 @@ console.log("-------------4---------------");
     // console.log("-------------5---------------");
     // console.log(req);
     // console.log("-------------5---------------");
-      if(req.body.object === 'page') {
-        /* Iterate over each entry, there can be multiple entries
+    new Promise((resolve, reject)=>{
+      if(req.body.object === 'page'){
+        res.sendStatus(200).send('EVENT RECEIVED')
+        resolve(req)
+      }else {
+        res.sendStatus(404).send('FORBIDDEN')
+        reject(error)
+      }
+    }).then((res)=>{
+      /* Iterate over each entry, there can be multiple entries
        if callbacks are batched. */
-       req.body.entry.forEach((entry)=>{
+       res.body.entry.forEach((entry)=>{
         //  console.log("-------------6---------------");
         //  console.log(entry);
         //  console.log("-------------6---------------");
@@ -45,7 +53,8 @@ console.log("-------------4---------------");
            }
          })
        })
-       res.sendStatus(200).send('EVENT_RECEIVED');
-      }
+    }).catch((error)=>{
+
+    })
   })
 }
