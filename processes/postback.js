@@ -5,7 +5,7 @@ const sendMessage = require('../templates/sendMessage')
 
 module.exports = function processPostback(event) {
   const senderID = event.sender.id
-  const payload = event.sender.payload
+  const payload = event.postback.payload
   console.log("I am here");
   console.log(payload);
   if(payload === 'Welcome') {
