@@ -22,10 +22,11 @@ console.log("-------------4---------------");
     // console.log("-------------5---------------");
     // console.log(req);
     // console.log("-------------5---------------");
+    res.sendStatus(200).send('EVENT_RECEIVED')
     new Promise((resolve, reject)=>{
       console.log(req.body.object === 'page');
       if(req.body.object === 'page'){
-        res.sendStatus(200).send('EVENT RECEIVED')
+        res.sendStatus(200).send('EVENT_RECEIVED')
         resolve(req)
       }else {
         res.sendStatus(404).send('FORBIDDEN')
