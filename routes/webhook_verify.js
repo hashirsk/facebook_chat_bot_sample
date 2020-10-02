@@ -32,6 +32,7 @@ console.log("-------------4---------------");
         reject(error)
       }
     }).then((res)=>{
+      console.log("-------------6---------------");
       /* Iterate over each entry, there can be multiple entries
        if callbacks are batched. */
        res.body.entry.forEach((entry)=>{
