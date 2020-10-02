@@ -22,24 +22,10 @@ console.log("-------------4---------------");
     // console.log("-------------5---------------");
     // console.log(req);
     // console.log("-------------5---------------");
-    console.log(res);
-    res.sendStatus(200).send('mark_seen')
-    new Promise((resolve, reject)=>{
-      console.log(req.body.object === 'page');
-      if(req.body.object === 'page'){
-        res.sendStatus(200).send('mark_seen')
-        console.log("-------------5---------------")
-        resolve(req)
-        console.log("-------------51---------------")
-      }else {
-        res.sendStatus(404).send('FORBIDDEN')
-        reject(error)
-      }
-    }).then((res)=>{
-      console.log("-------------6---------------");
-      /* Iterate over each entry, there can be multiple entries
+      if(req.body.object === 'page') {
+        /* Iterate over each entry, there can be multiple entries
        if callbacks are batched. */
-       res.body.entry.forEach((entry)=>{
+       req.body.entry.forEach((entry)=>{
         //  console.log("-------------6---------------");
         //  console.log(entry);
         //  console.log("-------------6---------------");
@@ -59,8 +45,7 @@ console.log("-------------4---------------");
            }
          })
        })
-    }).catch((error)=>{
-
-    })
+       res.status(200).send('EVENT_RECEIVED');
+      } else res.sendStatus(404);
   })
 }
