@@ -19,9 +19,9 @@ module.exports = (app, chalk) => {
 console.log("-------------4---------------");
 
   app.post('/webhook', (req, res) => {
-    console.log("-------------5---------------");
-    console.log(req);
-    console.log("-------------5---------------");
+    // console.log("-------------5---------------");
+    // console.log(req);
+    // console.log("-------------5---------------");
       if(req.body.object === 'page') {
         /* Iterate over each entry, there can be multiple entries
        if callbacks are batched. */
