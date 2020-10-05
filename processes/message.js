@@ -12,6 +12,24 @@ module.exports = function processMessage(event) {
         console.log('------', idx);
         console.log(element);
       });
+      if(!message) {
+        let text = "Welcome";
+
+      getQuery(senderID, text, 'facebook').then((response)=>{
+        // console.log(response);
+        console.log("------------121---------------"+response.data)
+         senderAction(senderID, "typing_on");
+         sendMessage(senderID, {
+            text: response.data.ans
+         }).then(()=>{
+             senderAction(senderID, "typing_off");
+           //senderAction(senderID, "typing_off")
+         })
+      }).catch((error)=>{
+
+      })
+      return
+      }
       const senderID = event.sender.id;
       console.log("Received message from senderId: " + senderID);
       console.log("Message is: " + JSON.stringify(message));
