@@ -8,7 +8,7 @@ module.exports = function processMessage(event) {
     if (!event.message.is_echo) {
       const message = event.message;
       const attachment = message.attachments
-      attachment.forEach(idx, element => {
+      attachment.forEach((element, idx) => {
         console.log('------', idx);
         console.log(element);
       });
