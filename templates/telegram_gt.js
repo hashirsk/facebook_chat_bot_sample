@@ -7,8 +7,7 @@ module.exports = (app, chalk) => {
       const { message } = req.body;
       let reply = "Welcome to telegram weather bot";
       // let _text = message.text //message.text.toLowerCase().indexOf('/');
-      console.log(req.body);
-      console.log("=====1=====");
+      console.log("=====1=====",req.body)
       getQuery(message.chat.id, message.text, 'telegram').then((response) => {
         sendMessage(telegram_url,message,response.data.ans,res);
       }).catch((error)=>{
