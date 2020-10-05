@@ -8,10 +8,12 @@ module.exports = function processMessage(event) {
   if (!event.message.is_echo) {
     const message = event.message;
     const attachment = message.attachments
-    attachment.forEach((element, idx) => {
-      console.log('------', idx);
-          console.log(element);
-    });
+    if (attachment) {
+      attachment.forEach((element, idx) => {
+        console.log('------', idx);
+        console.log(element);
+      });
+    }
     if (!message) {
       let text = "Welcome";
 
