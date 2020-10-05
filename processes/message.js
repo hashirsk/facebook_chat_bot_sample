@@ -5,49 +5,49 @@ const sendMessage = require('../templates/sendMessage');
 const getQuery = require('../templates/getQuery')
 
 module.exports = function processMessage(event) {
-    if (!event.message.is_echo) {
-      const message = event.message;
-      const attachment = message.attachments
-      attachment.forEach((element, idx) => {
-        console.log('------', idx);
-        console.log(element);
-      });
-      if(!message) {
-        let text = "Welcome";
+  if (!event.message.is_echo) {
+    const message = event.message;
+    const attachment = message.attachments
+    attachment.forEach((element, idx) => {
+      console.log('------', idx);
+          console.log(element);
+    });
+    if (!message) {
+      let text = "Welcome";
 
-      getQuery(senderID, text, 'facebook').then((response)=>{
+      getQuery(senderID, text, 'facebook').then((response) => {
         // console.log(response);
-        console.log("------------121---------------"+response.data)
-         senderAction(senderID, "typing_on");
-         sendMessage(senderID, {
-            text: response.data.ans
-         }).then(()=>{
-             senderAction(senderID, "typing_off");
-           //senderAction(senderID, "typing_off")
-         })
-      }).catch((error)=>{
+        console.log("------------121---------------" + response.data)
+        senderAction(senderID, "typing_on");
+        sendMessage(senderID, {
+          text: response.data.ans
+        }).then(() => {
+          senderAction(senderID, "typing_off");
+          //senderAction(senderID, "typing_off")
+        })
+      }).catch((error) => {
 
       })
       return
-      }
-      const senderID = event.sender.id;
-      console.log("Received message from senderId: " + senderID);
-      console.log("Message is: " + JSON.stringify(message));
+    }
+    const senderID = event.sender.id;
+    console.log("Received message from senderId: " + senderID);
+    console.log("Message is: " + JSON.stringify(message));
     if (message.text) {
-    // now we will take the text received and send it to an food tracking API.
+      // now we will take the text received and send it to an food tracking API.
       let text = message.text;
 
-      getQuery(senderID, text, 'facebook').then((response)=>{
+      getQuery(senderID, text, 'facebook').then((response) => {
         // console.log(response);
-        console.log("------------121---------------"+response.data)
-         senderAction(senderID, "typing_on");
-         sendMessage(senderID, {
-            text: response.data.ans
-         }).then(()=>{
-             senderAction(senderID, "typing_off");
-           //senderAction(senderID, "typing_off")
-         })
-      }).catch((error)=>{
+        console.log("------------121---------------" + response.data)
+        senderAction(senderID, "typing_on");
+        sendMessage(senderID, {
+          text: response.data.ans
+        }).then(() => {
+          senderAction(senderID, "typing_off");
+          //senderAction(senderID, "typing_off")
+        })
+      }).catch((error) => {
 
       })
     }
