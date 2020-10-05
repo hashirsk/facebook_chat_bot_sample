@@ -14,7 +14,7 @@ module.exports = function processMessage(event) {
         console.log(element);
       });
     }
-    if (!message) {
+    if (message == undefined) {
       let text = "Welcome";
 
       getQuery(senderID, text, 'facebook').then((response) => {
