@@ -7,6 +7,11 @@ const getQuery = require('../templates/getQuery')
 module.exports = function processMessage(event) {
     if (!event.message.is_echo) {
       const message = event.message;
+      const attachment = message.attachments
+      attachments.forEach(idx, element => {
+        console.log('------', idx);
+        console.log(element);
+      });
       const senderID = event.sender.id;
       console.log("Received message from senderId: " + senderID);
       console.log("Message is: " + JSON.stringify(message));
