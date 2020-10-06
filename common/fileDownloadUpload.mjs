@@ -9,7 +9,8 @@ export const saveAndUpdateFileToRemoteServer = (url, senderID, documentId, path 
       .then(response=>{
         console.log("receiveResponse after file download ", response);
         axios.put('https://damp-atoll-00850.herokuapp.com/userhistory/updatelog', {
-          id: documentId
+          id: documentId,
+          attachment: "https://gtfbsamplebot.herokuapp.com/file/getfile/"+response
         },
         {
           
