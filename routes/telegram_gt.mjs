@@ -103,9 +103,9 @@ const getFilePathTelegramApi = file_id => new Promise((resolve, reject) => {
       }
     })
     .then(response => {
-      console.log("got resoponse from telegram", response);
+      console.log("got resoponse from telegram", response.data);
       if (response.ok) {
-        const filePath = response.result.file_path
+        const filePath = response.data.result.file_path
         resolve(filePath)
       } else reject({ errorCode: 404, errorMsg: "Unable to resolve file path" })
     })
