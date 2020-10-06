@@ -1,2 +1,2 @@
 web: npm update
-web: npm --experimental-modules start
+web: npm  --harmony --experimental-modules start
