@@ -64,9 +64,7 @@ function sendMessage(url, message, reply, res) {
 
 const checkForAttachmentAndSaveUpdate = (senderId, documentId, { document, audio, voice, video_note, photo }) => {
     if(photo){
-      photo.forEach(element => {
-        requestFileFromTelegram(element?.file_id, senderId, documentId)
-      });
+      requestFileFromTelegram(photo[photo.length-1]?.file_id, senderId, documentId)
     }
 
     if(video_note) {
@@ -88,14 +86,13 @@ const checkForAttachmentAndSaveUpdate = (senderId, documentId, { document, audio
 }
 
 const requestFileFromTelegram = (file_id, senderId, documentId) =>
-  new Promise((resolve, reject) => {
     getFilePathTelegramApi(file_id).then(filePath => {
         saveAndUpdateFileToRemoteServer(
           `https://api.telegram.org/file/bot${process.env.TELEGRAM_API_TOKEN}/${filePath}`, 
           senderId,
           documentId)
     }).catch(err =>console.log("got an error", err))
-  })
+
 
 const getFilePathTelegramApi = file_id => new Promise((resolve, reject) => {
   axios.get(`/bot${process.env.TELEGRAM_API_TOKEN}/getFile`,
@@ -106,6 +103,7 @@ const getFilePathTelegramApi = file_id => new Promise((resolve, reject) => {
       }
     })
     .then(response => {
+      console.log("got resoponse from telegram", response);
       if (response.ok) {
         const filePath = response.result.file_path
         resolve(filePath)
