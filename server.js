@@ -1,6 +1,9 @@
-const express = require('express')
-const morgan = require('morgan')
-const bodyParser = require('body-parser')
+import express from 'express'
+import morgan from 'morgan'
+import bodyParser from 'body-parser'
+import {webhook_fb} from './routes/webhook_verify.js'
+import {webhook_tg} from './routes/telegram_gt.js'
+import {createLinkRouter as filedownload} from './routes/fileLink.route.js'
 
 const app = express()
 
@@ -11,9 +14,9 @@ app.use(morgan('dev')); // log every request in console.log();
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
-require('./routes/webhook_verify')(app)
-require('./routes/telegram_gt')(app)
-app.use('file', require('./routes/fileLink.route'))
+webhook_fb(app)
+webhook_tg(app)
+app.use('file', filedownload)
 
 app.listen(app.get('port'), function (){
   const url = 'http://localhost:'+app.set('port')

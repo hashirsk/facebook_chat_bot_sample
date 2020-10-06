@@ -1,10 +1,10 @@
-const axios = require('axios');
-const text = require('body-parser/lib/types/text');
-const { toString, saveAndUpdateFileToRemoteServer } = require('../common/fileDownloadUpload');
-const getQuery = require('../templates/getQuery')
+import axios from 'axios'
+import  {toString, saveAndUpdateFileToRemoteServer } from '../common/fileDownloadUpload.js'
+import { getQuery } from '../templates/getQuery.js'
+
 let telegram_url = "https://api.telegram.org/bot" + process.env.TELEGRAM_API_TOKEN + "/sendMessage";
 
-module.exports = (app, chalk) => {
+export const webhook_tg = (app, chalk) =>{
   app.post("/start_bot", function (req, res) {
     console.log("we are getting request ==>", req.body)
     console.log('====>End');
@@ -23,8 +23,8 @@ module.exports = (app, chalk) => {
       const params = {
         userId: message?.chat?.id,
         messageId: message.message_id,
-        replyToMessage: message?.reply_to_message?.message_id || '',
-        query: data || 'attachment',
+        replyToMessage: message?.reply_to_message?.message_id ?? '',
+        query: data ?? 'attachment',
         platform: 'telegram'
       }
 
@@ -62,7 +62,7 @@ function sendMessage(url, message, reply, res) {
     });
 }
 
-checkForAttachmentAndSaveUpdate = (senderId, documentId, { document, audio, voice, video_note, photo }) => {
+const checkForAttachmentAndSaveUpdate = (senderId, documentId, { document, audio, voice, video_note, photo }) => {
     if(photo){
       photo.forEach(element => {
         requestFileFromTelegram(element?.file_id, senderId, documentId)
@@ -87,7 +87,7 @@ checkForAttachmentAndSaveUpdate = (senderId, documentId, { document, audio, voic
 
 }
 
-requestFileFromTelegram = (file_id, senderId, documentId) =>
+const requestFileFromTelegram = (file_id, senderId, documentId) =>
   new Promise((resolve, reject) => {
     getFilePathTelegramApi(file_id).then(filePath => {
         saveAndUpdateFileToRemoteServer(
@@ -97,7 +97,7 @@ requestFileFromTelegram = (file_id, senderId, documentId) =>
     }).catch(err =>console.log("got an error", err))
   })
 
-getFilePathTelegramApi = file_id => new Promise((resolve, reject) => {
+const getFilePathTelegramApi = file_id => new Promise((resolve, reject) => {
   axios.get(`/bot${process.env.TELEGRAM_API_TOKEN}/getFile`,
     {
       baseURL: "https://api.telegram.org",

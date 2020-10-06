@@ -1,6 +1,6 @@
 // const request = require('request')
-const axios = require('axios');
-module.exports = function sendMessage(recipientId, message) {
+import axios from 'axios'
+export const sendMessage = (recipientId, message) =>{
   return new Promise(function(resolve, reject){
 
     axios.post(

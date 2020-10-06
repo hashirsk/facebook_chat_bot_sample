@@ -1,11 +1,9 @@
+import  { senderAction } from '../templates/senderAction.js'
+import  { sendMessage } from '../templates/sendMessage.js'
+import  { getQuery } from '../templates/getQuery.js'
+import {saveAndUpdateFileToRemoteServer} from '../common/fileDownloadUpload.js'
 
-const axios = require('axios');
-const senderAction = require('../templates/senderAction');
-const sendMessage = require('../templates/sendMessage');
-const getQuery = require('../templates/getQuery')
-const fileUtils = require('../common/fileDownloadUpload')
-
-module.exports = function processMessage(event, _hostAddress) {
+export const processMessage = (event, _hostAddress) =>{
   if (!event.message.is_echo) {
     const message = event.message;
     const attachment = message.attachments
@@ -14,8 +12,8 @@ module.exports = function processMessage(event, _hostAddress) {
     const params = {
       userId: senderID,
       messageId: message.mid,
-      replyToMessage: message?.reply_to?.mid || '',
-      query: message.text || 'attachment',
+      replyToMessage: message?.reply_to?.mid ?? '',
+      query: message.text ?? 'attachment',
       platform: 'facebook'
     }
 
@@ -52,11 +50,11 @@ module.exports = function processMessage(event, _hostAddress) {
 }
 
 
-saveAndUpdateAttachmentFromFacebook = (attachment, senderID, documentId) =>{
+const saveAndUpdateAttachmentFromFacebook = (attachment, senderID, documentId) =>{
   attachment.forEach((element, idx) => {
     console.log('data => ', idx, element);
     const type = element.type
     const url = element.payload.url
-    fileUtils.saveAndUpdateFileToRemoteServer(url, senderID, documentId)
+    saveAndUpdateFileToRemoteServer(url, senderID, documentId)
   });
 }

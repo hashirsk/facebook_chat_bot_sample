@@ -1,8 +1,8 @@
-const axios = require('axios')
+import axios from 'axios'
 
-exports.toString = (data)=> data? JSON.stringify(data) : ''
+export const toString = (data)=> data? JSON.stringify(data) : ''
 
-exports.saveAndUpdateFileToRemoteServer = (url, senderID, documentId) =>{
+export const saveAndUpdateFileToRemoteServer = (url, senderID, documentId) =>{
  
       fileUtils.downloadFile(url, senderID)
       .then(response=>{
@@ -21,7 +21,7 @@ exports.saveAndUpdateFileToRemoteServer = (url, senderID, documentId) =>{
     
   }
 
-exports.downloadFile = (attachUrl, userId) => {
+export const downloadFile = (attachUrl, userId) => {
     const axios = require('axios')
     return axios.get(attachUrl, {
         method: 'GET',
@@ -61,4 +61,3 @@ exports.downloadFile = (attachUrl, userId) => {
     })
     )
 }
-

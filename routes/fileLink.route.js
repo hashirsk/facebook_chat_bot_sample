@@ -1,10 +1,7 @@
-const express = require('express')
+import express from 'express'
+import { createFileLink } from '../controller/fileLink.controller.js'
 const app = express()
 
-const createLinkRouter = express.Router()
+export const createLinkRouter = express.Router()
 
-const createLinkController = require('../controller/fileLink.controller')
-
-createLinkRouter.route('/getfile/:userid/:ext/:filename').get(createLinkController.createFileLink)
-
-module.exports = createLinkRouter
+createLinkRouter.route('/getfile/:userid/:ext/:filename').get(createFileLink)

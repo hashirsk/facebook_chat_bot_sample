@@ -1,6 +1,6 @@
-const axios = require('axios');
+import axios from 'axios';
 
-module.exports = function getQuery(params){
+export const getQuery = (params) => {
   
   return new Promise((resolve, reject)=>{
     axios.post(
