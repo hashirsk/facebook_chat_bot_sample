@@ -45,8 +45,9 @@ export const downloadFile = (attachUrl, userId) => {
         let writer = fs.createWriteStream(finalPath)
         
         response.data.pipe(writer);
-        
+        let error = undefined
         writer.on('error', err=>{
+          error = err
           writer.close()
           console.log('got an error')
           reject(err);
