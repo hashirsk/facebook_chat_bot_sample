@@ -90,7 +90,7 @@ const requestFileFromTelegram = (file_id, senderId, documentId) =>
         saveAndUpdateFileToRemoteServer(
           `https://api.telegram.org/file/bot${process.env.TELEGRAM_API_TOKEN}/${filePath}`, 
           senderId,
-          documentId)
+          documentId, filePath)
     }).catch(err =>console.log("got an error", err))
 
 

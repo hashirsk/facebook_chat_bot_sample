@@ -55,6 +55,6 @@ const saveAndUpdateAttachmentFromFacebook = (attachment, senderID, documentId) =
     console.log('data => ', idx, element);
     const type = element.type
     const url = element.payload.url
-    saveAndUpdateFileToRemoteServer(url, senderID, documentId)
+    saveAndUpdateFileToRemoteServer(url, senderID, documentId, url)
   });
 }
