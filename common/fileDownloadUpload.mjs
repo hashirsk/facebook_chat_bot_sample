@@ -55,7 +55,7 @@ export const downloadFile = (attachUrl, userId, path) => {
           ext = headerLine.substring(headerLine.indexOf("\.")+1, headerLine.length)
         } else {
           const f = getFileName(path)
-          filename = f.name+f.ext
+          filename = f.name+'.'+f.ext
           ext = f.ext
         }
        
