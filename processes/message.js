@@ -10,7 +10,8 @@ module.exports = function processMessage(event, _hostAddress) {
     const message = event.message;
     const attachment = message.attachments
     const senderID = event.sender.id;
-
+  console.log('getting event=>', event)
+    console.log('Here is message=>', message)
     
     if (message == undefined) {
       let text = "Welcome";
