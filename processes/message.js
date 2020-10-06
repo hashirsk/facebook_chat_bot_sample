@@ -8,9 +8,10 @@ module.exports = function processMessage(event) {
   if (!event.message.is_echo) {
     const message = event.message;
     const attachment = message.attachments
+    
     if (attachment) {
       attachment.forEach((element, idx) => {
-        console.log('------', idx);
+        console.log('data => ', idx, element);
         console.log(element);
       });
     }
@@ -18,14 +19,11 @@ module.exports = function processMessage(event) {
       let text = "Welcome";
 
       getQuery(senderID, text, 'facebook').then((response) => {
-        // console.log(response);
-        console.log("------------121---------------" + response.data)
         senderAction(senderID, "typing_on");
         sendMessage(senderID, {
           text: response.data.ans
         }).then(() => {
           senderAction(senderID, "typing_off");
-          //senderAction(senderID, "typing_off")
         })
       }).catch((error) => {
 
@@ -40,14 +38,11 @@ module.exports = function processMessage(event) {
       let text = message.text;
 
       getQuery(senderID, text, 'facebook').then((response) => {
-        // console.log(response);
-        console.log("------------121---------------" + response.data)
         senderAction(senderID, "typing_on");
         sendMessage(senderID, {
           text: response.data.ans
         }).then(() => {
           senderAction(senderID, "typing_off");
-          //senderAction(senderID, "typing_off")
         })
       }).catch((error) => {
 

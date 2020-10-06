@@ -23,10 +23,7 @@ module.exports = function sendMessage(recipientId, message) {
       })
       .catch(function (error) {
         // handle error
-        console.log("----------------");
-        console.log(error);
-        console.log("----------------");
-        console.log("Error sending message ");
+        console.log("Error sending message ", error);
       //  console.log(error);
         reject(error)
       })

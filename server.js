@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 require('./routes/webhook_verify')(app)
-require('./templates/telegram_gt')(app)
+require('./routes/telegram_gt')(app)
+app.use('file', require('./routes/fileLink.route'))
 
 app.listen(app.get('port'), function (){
   const url = 'http://localhost:'+app.set('port')
