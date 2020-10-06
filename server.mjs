@@ -27,3 +27,5 @@ app.listen(app.get('port'), function (){
   const url = 'http://localhost:'+app.set('port')
   console.log('Application is running on port: ', app.get('port'));
 })
+
+app.use(express.static(path.join(__dirname, 'dist')));
