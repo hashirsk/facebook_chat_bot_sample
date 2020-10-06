@@ -8,11 +8,11 @@ export const saveAndUpdateFileToRemoteServer = (url, senderID, documentId, path 
       downloadFile(url, senderID, path)
       .then(response=>{
         console.log("receiveResponse after file download ", response);
-        axios.put('/userhistory/updatelog', {
+        axios.put('https://damp-atoll-00850.herokuapp.com/userhistory/updatelog', {
           id: documentId
         },
         {
-          baseUrl: 'https://damp-atoll-00850.herokuapp.com'
+         
         })
         .then(response=>console.log("Success=>", response))
         .catch(error=>console.log("Error=>", error))
@@ -54,7 +54,7 @@ export const downloadFile = (attachUrl, userId, path) => {
           ext = headerLine.substring(headerLine.indexOf("\.")+1, headerLine.length)
         } else {
           const f = getFileName(path)
-          filename = f.name
+          filename = f.name+f.ext
           ext = f.ext
         }
        
