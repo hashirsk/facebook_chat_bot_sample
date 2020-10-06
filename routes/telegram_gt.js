@@ -6,7 +6,7 @@ module.exports = (app, chalk) => {
   app.post("/start_bot", function(req, res) {
     console.log("we are getting request ==>", req.body)
     console.log('====>End');
-      const { message, poll, document, audio, location, contact, voice, video_note, photo } = req.body;
+      const { message } = req.body;
       let reply = "Welcome to telegram weather bot";
       // let _text = message.text //message.text.toLowerCase().indexOf('/');
       
@@ -17,17 +17,17 @@ module.exports = (app, chalk) => {
         }  
 
         getQuery(message.chat.id, message.text, 'telegram').then((response) => {
-          checkForAttachmentAndSaveUpdate(req.body.message)
+          checkForAttachmentAndSaveUpdate(req.body)
           sendMessage(telegram_url,message,response.data.ans,res);
         }).catch((error)=>{
-          sendMessage(telegram_url,message,"Sorry no result",res);
+          sendMessage(telegram_url,message,"Sorry no result",error);
         })
       } else res.end('ok')
     
   });
 }
 
-checkForAttachmentAndSaveUpdate = (body) =>{
+checkForAttachmentAndSaveUpdate = ({poll, document, audio, location, contact, voice, video_note, photo}) =>{
   
 }
 
