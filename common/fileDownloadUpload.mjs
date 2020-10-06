@@ -22,7 +22,7 @@ export const saveAndUpdateFileToRemoteServer = (url, senderID, documentId) =>{
   }
 
 export const downloadFile = (attachUrl, userId) => {
-    const axios = require('axios')
+    
     return axios.get(attachUrl, {
         method: 'GET',
         responseType: 'stream'
