@@ -7,22 +7,25 @@ module.exports = (app, chalk) => {
       const { message } = req.body;
       let reply = "Welcome to telegram weather bot";
       // let _text = message.text //message.text.toLowerCase().indexOf('/');
-      if(message.text.toLowerCase() === '/start') {
-        sendMessage(telegram_url, reply, reply, res);
-        return
-      }
+      const text = message.text
+      if(text) {
+        if(message.text.toLowerCase() === '/start') {
+          sendMessage(telegram_url, reply, reply, res);
+          return
+        }  
 
+        getQuery(message.chat.id, message.text, 'telegram').then((response) => {
+          sendMessage(telegram_url,message,response.data.ans,res);
+        }).catch((error)=>{
+          sendMessage(telegram_url,message,"Sorry no result",res);
+        })
+      }
+      
       //photo
       let photo = req.body.message.photo
       if(photo) {
 
       }
-
-      getQuery(message.chat.id, message.text, 'telegram').then((response) => {
-        sendMessage(telegram_url,message,response.data.ans,res);
-      }).catch((error)=>{
-        sendMessage(telegram_url,message,"Sorry no result",res);
-      })
   });
 }
 
