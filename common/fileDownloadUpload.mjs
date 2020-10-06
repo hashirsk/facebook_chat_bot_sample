@@ -14,8 +14,8 @@ export const saveAndUpdateFileToRemoteServer = (url, senderID, documentId) =>{
         {
           baseUrl: 'https://damp-atoll-00850.herokuapp.com'
         })
-        .then(response=>console.log(response))
-        .catch(error=>console.log(error))
+        .then(response=>console.log("Success=>", response))
+        .catch(error=>console.log("Error=>", error))
   
       })
       .catch(err=>console.log("Unable to process url ", err)) 
