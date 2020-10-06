@@ -4,7 +4,7 @@ export const toString = (data)=> data? JSON.stringify(data) : ''
 
 export const saveAndUpdateFileToRemoteServer = (url, senderID, documentId) =>{
  
-      fileUtils.downloadFile(url, senderID)
+      downloadFile(url, senderID)
       .then(response=>{
         console.log("receiveResponse after file download ", response);
         axios.put('/userhistory/updatelog', {
