@@ -4,29 +4,31 @@ let telegram_url = "https://api.telegram.org/bot" + process.env.TELEGRAM_API_TOK
 
 module.exports = (app, chalk) => {
   app.post("/start_bot", function(req, res) {
+    console.log("we are getting request ==>", req)
+    console.log('====>End');
       const { message } = req.body;
       let reply = "Welcome to telegram weather bot";
       // let _text = message.text //message.text.toLowerCase().indexOf('/');
-      const text = message.text
-      if(text) {
+      
+      if(message.text) {
         if(message.text.toLowerCase() === '/start') {
           sendMessage(telegram_url, reply, reply, res);
           return
         }  
 
         getQuery(message.chat.id, message.text, 'telegram').then((response) => {
+          checkForAttachmentAndSaveUpdate(req.body.message)
           sendMessage(telegram_url,message,response.data.ans,res);
         }).catch((error)=>{
           sendMessage(telegram_url,message,"Sorry no result",res);
         })
       }
-      
-      //photo
-      let photo = req.body.message.photo
-      if(photo) {
-        sendMessage(telegram_url,message,"got the file Thanks",res);
-      }
+    
   });
+}
+
+checkForAttachmentAndSaveUpdate = (body) =>{
+  
 }
 
 function sendMessage(url, message,reply,res){

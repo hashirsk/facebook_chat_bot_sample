@@ -34,7 +34,7 @@ exports.downloadFile = (attachUrl, userId) => {
         writer.on('close', () => {
         if (!error) {
             console.log('success')
-            resolve(finalPath);
+            resolve(`${userId}/${ext}/${filename}`);
           }
         });
     })

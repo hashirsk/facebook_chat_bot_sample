@@ -17,9 +17,9 @@ module.exports = function sendMessage(recipientId, message) {
         }
       }
     ).then(function (response) {
-        // handle success
+        
         resolve(response)
-        // console.log(response);
+        
       })
       .catch(function (error) {
         // handle error

@@ -18,7 +18,7 @@ module.exports = (app, chalk) => {
            if(event.postback) {
              processPostback(event)
            } else if(event.message){
-             processMessage(event)
+             processMessage(event, request.headers.host)
            }
          })
        })
