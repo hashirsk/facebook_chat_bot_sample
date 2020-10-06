@@ -28,7 +28,7 @@ export const downloadFile = (attachUrl, userId) => {
         method: 'GET',
         responseType: 'stream'
     }).then(response => new Promise((resolve, reject)=>{
-        console.log("called download file function to save file into the database");
+        console.log("called download file function to save file into the database", response.data.headers);
         let headerLine = response.data.headers['content-disposition']
         headerLine = headerLine.replace(/\"/g, "")
         let filename = headerLine.substring(headerLine.indexOf('=')+1, headerLine.length)
