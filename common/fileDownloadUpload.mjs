@@ -12,7 +12,7 @@ export const saveAndUpdateFileToRemoteServer = (url, senderID, documentId, path 
           id: documentId
         },
         {
-         
+          
         })
         .then(response=>console.log("Success=>", response))
         .catch(error=>console.log("Error=>", error))
