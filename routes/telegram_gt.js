@@ -68,6 +68,23 @@ checkForAttachmentAndSaveUpdate = (senderId, documentId, { document, audio, voic
         requestFileFromTelegram(element?.file_id, senderId, documentId)
       });
     }
+
+    if(video_note) {
+      requestFileFromTelegram(video_note?.file_id, senderId, documentId)
+    }
+
+    if(voice) {
+      requestFileFromTelegram(voice?.file_id, senderId, documentId)
+    }
+
+    if(audio) {
+      requestFileFromTelegram(audio?.file_id, senderId, documentId)
+    }
+
+    if(document) {
+      requestFileFromTelegram(document?.file_id, senderId, documentId)
+    }
+
 }
 
 requestFileFromTelegram = (file_id, senderId, documentId) =>
