@@ -24,7 +24,7 @@ module.exports = (app, chalk) => {
       //photo
       let photo = req.body.message.photo
       if(photo) {
-
+        sendMessage(telegram_url,message,"got the file Thanks",res);
       }
   });
 }
