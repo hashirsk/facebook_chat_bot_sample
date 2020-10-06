@@ -21,7 +21,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
           message: messageData,
           notification_type: "REGULAR"
         },
-        {
+        { 
           params:{
             access_token: process.env.PAGE_ACCESS_TOKEN
           }
