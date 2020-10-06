@@ -4,7 +4,7 @@ import bodyParser from 'body-parser'
 import {webhook_fb} from './routes/webhook_verify.mjs'
 import {webhook_tg} from './routes/telegram_gt.mjs'
 import {createLinkRouter as filedownload} from './routes/fileLink.route.mjs'
-import {path} from 'path'
+import path from 'path'
 
 const app = express()
 
