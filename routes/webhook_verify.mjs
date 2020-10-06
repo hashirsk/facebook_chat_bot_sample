@@ -1,5 +1,5 @@
-import {processPostback} from '../processes/postback.js'
-import {processMessage} from '../processes/message.js'
+import {processPostback} from '../processes/postback.mjs'
+import {processMessage} from '../processes/message.mjs'
 
 export const webhook_fb = (app, chalk) => {
 

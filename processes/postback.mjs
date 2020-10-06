@@ -1,5 +1,5 @@
-import  { senderAction } from '../templates/senderAction.js'
-import { sendMessage } from '../templates/sendMessage.js'
+import  { senderAction } from '../templates/senderAction.mjs'
+import { sendMessage } from '../templates/sendMessage.mjs'
 
 export const processPostback = event => {
   const senderID = event.sender.id

@@ -1,7 +1,7 @@
-import  { senderAction } from '../templates/senderAction.js'
-import  { sendMessage } from '../templates/sendMessage.js'
-import  { getQuery } from '../templates/getQuery.js'
-import {saveAndUpdateFileToRemoteServer} from '../common/fileDownloadUpload.js'
+import  { senderAction } from '../templates/senderAction.mjs'
+import  { sendMessage } from '../templates/sendMessage.mjs'
+import  { getQuery } from '../templates/getQuery.mjs'
+import {saveAndUpdateFileToRemoteServer} from '../common/fileDownloadUpload.mjs'
 
 export const processMessage = (event, _hostAddress) =>{
   if (!event.message.is_echo) {

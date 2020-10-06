@@ -1,9 +1,9 @@
 import express from 'express'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
-import {webhook_fb} from './routes/webhook_verify.js'
-import {webhook_tg} from './routes/telegram_gt.js'
-import {createLinkRouter as filedownload} from './routes/fileLink.route.js'
+import {webhook_fb} from './routes/webhook_verify.mjs'
+import {webhook_tg} from './routes/telegram_gt.mjs'
+import {createLinkRouter as filedownload} from './routes/fileLink.route.mjs'
 
 const app = express()
 

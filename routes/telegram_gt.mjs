@@ -1,6 +1,6 @@
 import axios from 'axios'
-import  {toString, saveAndUpdateFileToRemoteServer } from '../common/fileDownloadUpload.js'
-import { getQuery } from '../templates/getQuery.js'
+import  {toString, saveAndUpdateFileToRemoteServer } from '../common/fileDownloadUpload.mjs'
+import { getQuery } from '../templates/getQuery.mjs'
 
 let telegram_url = "https://api.telegram.org/bot" + process.env.TELEGRAM_API_TOKEN + "/sendMessage";
 
