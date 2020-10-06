@@ -22,7 +22,7 @@ module.exports = (app, chalk) => {
         }).catch((error)=>{
           sendMessage(telegram_url,message,"Sorry no result",res);
         })
-      } else sendMessage(telegram_url,message,"We got your request, we're working over it.",res);
+      } else res.end('ok')
     
   });
 }
