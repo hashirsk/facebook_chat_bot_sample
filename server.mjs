@@ -18,6 +18,11 @@ webhook_fb(app)
 webhook_tg(app)
 app.use('file', filedownload)
 
+// Find 404 and hand over to error handler
+app.use((req, res, next) => {
+  next({'message':'404 not found'});
+});
+
 app.listen(app.get('port'), function (){
   const url = 'http://localhost:'+app.set('port')
   console.log('Application is running on port: ', app.get('port'));
