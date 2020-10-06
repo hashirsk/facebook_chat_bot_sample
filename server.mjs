@@ -4,7 +4,6 @@ import bodyParser from 'body-parser'
 import {webhook_fb} from './routes/webhook_verify.mjs'
 import {webhook_tg} from './routes/telegram_gt.mjs'
 import {createLinkRouter as filedownload} from './routes/fileLink.route.mjs'
-import path from 'path'
 
 const app = express()
 
@@ -28,5 +27,3 @@ app.listen(app.get('port'), function (){
   const url = 'http://localhost:'+app.set('port')
   console.log('Application is running on port: ', app.get('port'));
 })
-
-app.use(express.static(path.join(__dirname, 'dist')));
