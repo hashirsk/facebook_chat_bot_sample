@@ -1,4 +1,5 @@
 import axios from 'axios'
+import fs from 'fs'
 
 export const toString = (data)=> data? JSON.stringify(data) : ''
 
@@ -33,8 +34,7 @@ export const downloadFile = (attachUrl, userId) => {
         let filename = headerLine.substring(headerLine.indexOf('=')+1, headerLine.length)
         let ext = headerLine.substring(headerLine.indexOf("\.")+1, headerLine.length)
        
-
-        const fs = require('fs')
+        //const fs = require('fs')
         let dir = `attachment/${userId}/${ext}`
         if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
