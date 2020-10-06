@@ -1,6 +1,6 @@
 // const request = require('request')
-const axios = require('axios');
-module.exports = function sendMessage(recipientId, message) {
+import axios from 'axios'
+export const sendMessage = (recipientId, message) =>{
   return new Promise(function(resolve, reject){
 
     axios.post(
@@ -17,16 +17,13 @@ module.exports = function sendMessage(recipientId, message) {
         }
       }
     ).then(function (response) {
-        // handle success
+        
         resolve(response)
-        // console.log(response);
+        
       })
       .catch(function (error) {
         // handle error
-        console.log("----------------");
-        console.log(error);
-        console.log("----------------");
-        console.log("Error sending message ");
+        console.log("Error sending message ", error);
       //  console.log(error);
         reject(error)
       })

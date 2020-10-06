@@ -1,28 +1,28 @@
  photo
 
   [
-2020-10-05T17:07:35.392072+00:00 app[web.1]: {
-2020-10-05T17:07:35.392072+00:00 app[web.1]: file_id: 'AgACAgUAAxkBAANsX3tS18xejp73Y1aaPVQUdzhGamEAAo6qMRt-BthX-cMTjpkrQHy5qE5sdAADAQADAgADbQADssgCAAEbBA',
-2020-10-05T17:07:35.392073+00:00 app[web.1]: file_unique_id: 'AQADuahObHQAA7LIAgAB',
-2020-10-05T17:07:35.392073+00:00 app[web.1]: file_size: 1832,
-2020-10-05T17:07:35.392073+00:00 app[web.1]: width: 180,
-2020-10-05T17:07:35.392073+00:00 app[web.1]: height: 320
-2020-10-05T17:07:35.392074+00:00 app[web.1]: },
-2020-10-05T17:07:35.392074+00:00 app[web.1]: {
-2020-10-05T17:07:35.392074+00:00 app[web.1]: file_id: 'AgACAgUAAxkBAANsX3tS18xejp73Y1aaPVQUdzhGamEAAo6qMRt-BthX-cMTjpkrQHy5qE5sdAADAQADAgADeAADtMgCAAEbBA',
-2020-10-05T17:07:35.392074+00:00 app[web.1]: file_unique_id: 'AQADuahObHQAA7TIAgAB',
-2020-10-05T17:07:35.392074+00:00 app[web.1]: file_size: 9155,
-2020-10-05T17:07:35.392075+00:00 app[web.1]: width: 450,
-2020-10-05T17:07:35.392075+00:00 app[web.1]: height: 800
-2020-10-05T17:07:35.392075+00:00 app[web.1]: },
-2020-10-05T17:07:35.392075+00:00 app[web.1]: {
-2020-10-05T17:07:35.392076+00:00 app[web.1]: file_id: 'AgACAgUAAxkBAANsX3tS18xejp73Y1aaPVQUdzhGamEAAo6qMRt-BthX-cMTjpkrQHy5qE5sdAADAQADAgADeQADtcgCAAEbBA',
-2020-10-05T17:07:35.392076+00:00 app[web.1]: file_unique_id: 'AQADuahObHQAA7XIAgAB',
-2020-10-05T17:07:35.392076+00:00 app[web.1]: file_size: 25909,
-2020-10-05T17:07:35.392076+00:00 app[web.1]: width: 720,
-2020-10-05T17:07:35.392076+00:00 app[web.1]: height: 1280
-2020-10-05T17:07:35.392077+00:00 app[web.1]: }
-2020-10-05T17:07:35.392077+00:00 app[web.1]: ]
+ {
+ file_id: 'AgACAgUAAxkBAANsX3tS18xejp73Y1aaPVQUdzhGamEAAo6qMRt-BthX-cMTjpkrQHy5qE5sdAADAQADAgADbQADssgCAAEbBA',
+ file_unique_id: 'AQADuahObHQAA7LIAgAB',
+ file_size: 1832,
+ width: 180,
+ height: 320
+ },
+ {
+ file_id: 'AgACAgUAAxkBAANsX3tS18xejp73Y1aaPVQUdzhGamEAAo6qMRt-BthX-cMTjpkrQHy5qE5sdAADAQADAgADeAADtMgCAAEbBA',
+ file_unique_id: 'AQADuahObHQAA7TIAgAB',
+ file_size: 9155,
+ width: 450,
+ height: 800
+ },
+ {
+ file_id: 'AgACAgUAAxkBAANsX3tS18xejp73Y1aaPVQUdzhGamEAAo6qMRt-BthX-cMTjpkrQHy5qE5sdAADAQADAgADeQADtcgCAAEbBA',
+ file_unique_id: 'AQADuahObHQAA7XIAgAB',
+ file_size: 25909,
+ width: 720,
+ height: 1280
+ }
+ ]
 
 ==============================
 ==============================
@@ -30,13 +30,13 @@
 video_note
 
  {
-2020-10-05T17:08:21.776044+00:00 app[web.1]: duration: 3,
-2020-10-05T17:08:21.776045+00:00 app[web.1]: length: 240,
-2020-10-05T17:08:21.776045+00:00 app[web.1]: thumb: [Object],
-2020-10-05T17:08:21.776046+00:00 app[web.1]: file_id: 'DQACAgUAAxkBAANuX3tTBQkObbTa1I5G6_K7Tu-fNAQAArMBAAJ-BthX3PgBiPjd3RAbBA',
-2020-10-05T17:08:21.776046+00:00 app[web.1]: file_unique_id: 'AgADswEAAn4G2Fc',
-2020-10-05T17:08:21.776046+00:00 app[web.1]: file_size: 98617
-2020-10-05T17:08:21.776047+00:00 app[web.1]: }
+ duration: 3,
+ length: 240,
+ thumb: [Object],
+ file_id: 'DQACAgUAAxkBAANuX3tTBQkObbTa1I5G6_K7Tu-fNAQAArMBAAJ-BthX3PgBiPjd3RAbBA',
+ file_unique_id: 'AgADswEAAn4G2Fc',
+ file_size: 98617
+ }
 
 
 =================================
@@ -44,22 +44,22 @@ video_note
 voice
 
 {
-2020-10-05T17:09:14.819730+00:00 app[web.1]: duration: 1,
-2020-10-05T17:09:14.819731+00:00 app[web.1]: mime_type: 'audio/ogg',
-2020-10-05T17:09:14.819731+00:00 app[web.1]: file_id: 'AwACAgUAAxkBAANwX3tTOtmfJUdHvsGw7VD26lu53MEAArQBAAJ-BthXhbXdKNnPhwUbBA',
-2020-10-05T17:09:14.819732+00:00 app[web.1]: file_unique_id: 'AgADtAEAAn4G2Fc',
-2020-10-05T17:09:14.819732+00:00 app[web.1]: file_size: 3898
-2020-10-05T17:09:14.819733+00:00 app[web.1]: }
+ duration: 1,
+ mime_type: 'audio/ogg',
+ file_id: 'AwACAgUAAxkBAANwX3tTOtmfJUdHvsGw7VD26lu53MEAArQBAAJ-BthXhbXdKNnPhwUbBA',
+ file_unique_id: 'AgADtAEAAn4G2Fc',
+ file_size: 3898
+ }
 
 ==================================
 ==================================
 contact
 
 {
-2020-10-05T17:10:05.348300+00:00 app[web.1]: phone_number: '919920874197',
-2020-10-05T17:10:05.348300+00:00 app[web.1]: first_name: 'Kalpesh Gt',
-2020-10-05T17:10:05.348300+00:00 app[web.1]: user_id: 889070119
-2020-10-05T17:10:05.348300+00:00 app[web.1]: }
+ phone_number: '919920874197',
+ first_name: 'Kalpesh Gt',
+ user_id: 889070119
+ }
 
 ==================================
 ==================================
@@ -72,38 +72,38 @@ contact
 audio
 
 {
-2020-10-05T17:11:35.422830+00:00 app[web.1]: duration: 297,
-2020-10-05T17:11:35.422830+00:00 app[web.1]: mime_type: 'audio/x-aac',
-2020-10-05T17:11:35.422831+00:00 app[web.1]: title: '18602085678-20191105105737',
-2020-10-05T17:11:35.422831+00:00 app[web.1]: performer: '<unknown>',
-2020-10-05T17:11:35.422831+00:00 app[web.1]: file_id: 'CQACAgUAAxkBAAN2X3tTx7ZJq-QhXw2IInBke1FmMKMAArUBAAJ-BthX7RDINY-t3UUbBA',
-2020-10-05T17:11:35.422832+00:00 app[web.1]: file_unique_id: 'AgADtQEAAn4G2Fc',
-2020-10-05T17:11:35.422832+00:00 app[web.1]: file_size: 486766
-2020-10-05T17:11:35.422832+00:00 app[web.1]: }
+ duration: 297,
+ mime_type: 'audio/x-aac',
+ title: '18602085678-20191105105737',
+ performer: '<unknown>',
+ file_id: 'CQACAgUAAxkBAAN2X3tTx7ZJq-QhXw2IInBke1FmMKMAArUBAAJ-BthX7RDINY-t3UUbBA',
+ file_unique_id: 'AgADtQEAAn4G2Fc',
+ file_size: 486766
+ }
 
 ===================================
 ===================================
 document
 
  {
-2020-10-05T17:12:10.169581+00:00 app[web.1]: file_name: 'moviehdfav.txt',
-2020-10-05T17:12:10.169581+00:00 app[web.1]: mime_type: 'text/plain',
-2020-10-05T17:12:10.169582+00:00 app[web.1]: file_id: 'BQACAgUAAxkBAAN4X3tT6pAfk-mPn_BLmLJqOVTXMxEAArYBAAJ-BthXJ7SRQlErZCIbBA',
-2020-10-05T17:12:10.169583+00:00 app[web.1]: file_unique_id: 'AgADtgEAAn4G2Fc',
-2020-10-05T17:12:10.169583+00:00 app[web.1]: file_size: 2
-2020-10-05T17:12:10.169583+00:00 app[web.1]: }
+ file_name: 'moviehdfav.txt',
+ mime_type: 'text/plain',
+ file_id: 'BQACAgUAAxkBAAN4X3tT6pAfk-mPn_BLmLJqOVTXMxEAArYBAAJ-BthXJ7SRQlErZCIbBA',
+ file_unique_id: 'AgADtgEAAn4G2Fc',
+ file_size: 2
+ }
 
 ====================================
 ====================================
 poll
 
 poll: {
-2020-10-05T17:13:42.383091+00:00 app[web.1]: id: '6329816414504878083',
-2020-10-05T17:13:42.383091+00:00 app[web.1]: question: 'You',
-2020-10-05T17:13:42.383092+00:00 app[web.1]: options: [Array],
-2020-10-05T17:13:42.383092+00:00 app[web.1]: total_voter_count: 0,
-2020-10-05T17:13:42.383092+00:00 app[web.1]: is_closed: false,
-2020-10-05T17:13:42.383093+00:00 app[web.1]: is_anonymous: true,
-2020-10-05T17:13:42.383093+00:00 app[web.1]: type: 'regular',
-2020-10-05T17:13:42.383094+00:00 app[web.1]: allows_multiple_answers: true
-2020-10-05T17:13:42.383094+00:00 app[web.1]: }
+ id: '6329816414504878083',
+ question: 'You',
+ options: [Array],
+ total_voter_count: 0,
+ is_closed: false,
+ is_anonymous: true,
+ type: 'regular',
+ allows_multiple_answers: true
+ }

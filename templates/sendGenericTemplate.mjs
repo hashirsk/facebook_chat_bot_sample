@@ -1,5 +1,5 @@
 // const request = require('request
-const axios = require('axios');
+import axios from 'axios'
 //const senderAction = require('../templates/senderAction');
 
 module.exports = function sendGenericTemplate(recipientId, respBody) {
@@ -13,7 +13,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
          quick_replies: ["Welcome", "Hashir"]
       }
 
-      axios.post(
+      axios.post( 
         'https://graph.facebook.com/v8.0/me/messages',
         {
           messaging_type: "RESPONSE",

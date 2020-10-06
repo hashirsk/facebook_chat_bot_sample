@@ -1,6 +1,6 @@
 // const request = require('request')
-const axios = require('axios');
-module.exports = function senderAction(recipientId, typingStatus) {
+import axios from 'axios'
+export const senderAction = (recipientId, typingStatus) =>{
 
   axios.post(
     'https://graph.facebook.com/v8.0/me/messages',
@@ -22,6 +22,4 @@ module.exports = function senderAction(recipientId, typingStatus) {
       console.log("Error sending message ");
     //  console.log(error);
     })
-
- 
 }
