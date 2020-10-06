@@ -4,13 +4,13 @@ let telegram_url = "https://api.telegram.org/bot" + process.env.TELEGRAM_API_TOK
 
 module.exports = (app, chalk) => {
   app.post("/start_bot", function(req, res) {
-    console.log("we are getting request ==>", req)
+    console.log("we are getting request ==>", req.body)
     console.log('====>End');
-      const { message } = req.body;
+      const { message, poll, document, audio, location, contact, voice, video_note, photo } = req.body;
       let reply = "Welcome to telegram weather bot";
       // let _text = message.text //message.text.toLowerCase().indexOf('/');
       
-      if(message.text) {
+      if(message) {
         if(message.text.toLowerCase() === '/start') {
           sendMessage(telegram_url, reply, reply, res);
           return
@@ -22,7 +22,7 @@ module.exports = (app, chalk) => {
         }).catch((error)=>{
           sendMessage(telegram_url,message,"Sorry no result",res);
         })
-      }
+      } else sendMessage(telegram_url,message,"We got your request, we're working over it.",res);
     
   });
 }
