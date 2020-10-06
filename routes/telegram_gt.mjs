@@ -34,7 +34,7 @@ export const webhook_tg = (app, chalk) =>{
       }
 
       getQuery(params).then(response => {
-        checkForAttachmentAndSaveUpdate(message, response.data._id)
+        checkForAttachmentAndSaveUpdate(params.userId, response.data._id, message)
         sendMessage(telegram_url, message, response.data.ans, res);
       }).catch(error => {
         console.log("I'm getting error => ", error)
