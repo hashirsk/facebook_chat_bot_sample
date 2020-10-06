@@ -1,5 +1,26 @@
 const axios = require('axios')
 
+exports.toString = (data)=> data? JSON.stringify(data) : ''
+
+exports.saveAndUpdateFileToRemoteServer = (url, senderID, documentId) =>{
+ 
+      fileUtils.downloadFile(url, senderID)
+      .then(response=>{
+        console.log("receiveResponse after file download ", response);
+        axios.put('/userhistory/updatelog', {
+          id: documentId
+        },
+        {
+          baseUrl: 'https://damp-atoll-00850.herokuapp.com'
+        })
+        .then(response=>console.log(response))
+        .catch(error=>console.log(error))
+  
+      })
+      .catch(err=>console.log("Unable to process url ", err)) 
+    
+  }
+
 exports.downloadFile = (attachUrl, userId) => {
     const axios = require('axios')
     return axios.get(attachUrl, {

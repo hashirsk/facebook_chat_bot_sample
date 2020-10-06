@@ -1,4 +1,4 @@
-// const request = require('request');
+
 const axios = require('axios');
 const senderAction = require('../templates/senderAction');
 const sendMessage = require('../templates/sendMessage');
@@ -11,13 +11,19 @@ module.exports = function processMessage(event, _hostAddress) {
     const attachment = message.attachments
     const senderID = event.sender.id;
 
-    
-    if (message == undefined) {
-      let text = "Welcome";
+    const params = {
+      userId: senderID,
+      messageId: message.mid,
+      replyToMessage: message?.reply_to?.mid || '',
+      query: message.text || 'attachment',
+      platform: 'facebook'
+    }
 
-      getQuery(senderID, text, 'facebook').then((response) => {
+    if (message == undefined || message == null) {
+      
+      getQuery(params).then((response) => {
         if (attachment) {
-          saveAndUpdateAttachmentFromFacebook(senderID, response.data._id)
+          saveAndUpdateAttachmentFromFacebook(attachment, senderID, response.data._id)
         }
         senderAction(senderID, "typing_on");
         sendMessage(senderID, {
@@ -31,11 +37,10 @@ module.exports = function processMessage(event, _hostAddress) {
     console.log("Message is: " + JSON.stringify(message));
     if (message.text) {
       // now we will take the text received and send it to an food tracking API.
-      let text = message.text;
 
-      getQuery(senderID, text, 'facebook').then((response) => {
+      getQuery(params).then((response) => {
         if (attachment) {
-          saveAndUpdateAttachmentFromFacebook(senderID, response.data._id)
+          saveAndUpdateAttachmentFromFacebook(attachment, senderID, response.data._id)
         }
         senderAction(senderID, "typing_on");
         sendMessage(senderID, {
@@ -47,24 +52,11 @@ module.exports = function processMessage(event, _hostAddress) {
 }
 
 
-saveAndUpdateAttachmentFromFacebook = (senderID, documentId) =>{
+saveAndUpdateAttachmentFromFacebook = (attachment, senderID, documentId) =>{
   attachment.forEach((element, idx) => {
     console.log('data => ', idx, element);
     const type = element.type
     const url = element.payload.url
-    fileUtils.downloadFile(url, senderID)
-    .then(response=>{
-      console.log("receiveResponse after file download ", response);
-      axios.put('/userhistory/updatelog', {
-        id: documentId
-      },
-      {
-        baseUrl: 'https://damp-atoll-00850.herokuapp.com'
-      })
-      .then(response=>console.log(response))
-      .catch(error=>console.log(error))
-
-    })
-    .catch(err=>console.log("Unable to process url ", err)) 
+    fileUtils.saveAndUpdateFileToRemoteServer(url, senderID, documentId)
   });
 }
