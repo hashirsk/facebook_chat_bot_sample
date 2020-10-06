@@ -20,7 +20,7 @@ module.exports = (app, chalk) => {
           checkForAttachmentAndSaveUpdate(req.body)
           sendMessage(telegram_url,message,response.data.ans,res);
         }).catch((error)=>{
-          sendMessage(telegram_url,message,"Sorry no result",error);
+          sendMessage(telegram_url,message,"Sorry no result",res);
         })
       } else res.end('ok')
     
@@ -42,6 +42,7 @@ function sendMessage(url, message,reply,res){
     }).catch(error =>{
       console.log("Message failed");
       console.log(error);
+      res.end("failed")
    });
 }
 
