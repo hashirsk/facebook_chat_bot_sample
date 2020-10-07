@@ -64,6 +64,7 @@ export const downloadFile = (attachUrl, userId, path) => {
         if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
         }
+        console.log("directory path created by us is ", dir)
         console.log("is Directory exist ", fs.existsSync(dir));
         
         const finalPath = dir+'/'+filename
