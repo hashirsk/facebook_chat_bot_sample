@@ -65,14 +65,6 @@ export const downloadFile = (attachUrl, userId, path) => {
         fs.mkdirSync(dir, { recursive: true });
         }
 
-        try {
-          fs.accessSync(dir, fs.constants.W_OK);
-          console.log('===1====can write %s', dir);
-        }
-        catch (err) {
-          console.log("===1====%s doesn't exist", path);
-        }
-
         console.log("directory path created by us is ", dir)
         console.log("is Directory exist ", fs.existsSync(dir));
         

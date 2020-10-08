@@ -17,7 +17,7 @@ export const processMessage = (event, _hostAddress) =>{
       platform: 'facebook'
     }
 
-    if (message == undefined || message == null) {
+    if (message == undefined || message == null) { 
       
       getQuery(params).then((response) => {
         if (attachment) {
